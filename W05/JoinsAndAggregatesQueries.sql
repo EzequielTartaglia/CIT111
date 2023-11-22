@@ -42,6 +42,12 @@ ORDER BY magazineName;
 
 -- 5) List all the magazines that Samantha Sanders subscribes to. 
 
+SELECT magazineName, subscriberLastName, subscriberFirstName
+FROM magazine 
+INNER JOIN subscription ON subscription.magazineKey = magazine.magazineKey
+INNER JOIN subscriber ON subscription.subscriberKey = subscriber.subscriberKey
+WHERE subscriberFirstName = 'Samantha' and subscriberLastName = 'Sanders'
+ORDER BY magazineName;
 
 -- Employee Queries
 
