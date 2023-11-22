@@ -27,4 +27,8 @@ FROM artist
 INNER JOIN artwork ON artwork.artist_id = artist.artist_id;
 
 
+-- Magazine Queries
+
+-- Use magazine schema
+use magazine;
 
