@@ -66,6 +66,14 @@ LIMIT 5;
 
 -- 7) Find out the current salary and department of Berni Genin. You can use the ORDER BY and LIMIT to get just the most recent salary.
 
+SELECT first_name, last_name, dept_name, salary, salaries.from_date
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN salaries ON salaries.emp_no = employees.emp_no
+INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
+WHERE first_name = 'Berni' and last_name = 'Genin'
+ORDER BY salaries.to_date DESC
+LIMIT 1;
 
 -- Bike Shop Queries
 
