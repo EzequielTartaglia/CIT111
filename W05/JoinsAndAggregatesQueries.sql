@@ -32,3 +32,5 @@ INNER JOIN artwork ON artwork.artist_id = artist.artist_id;
 -- Use magazine schema
 use magazine;
 
+-- 4) List all subscriptions with the magazine name, last name, first name, and sort alphabetically by magazine name. 
+
