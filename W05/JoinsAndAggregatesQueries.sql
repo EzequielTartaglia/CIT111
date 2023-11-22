@@ -56,6 +56,14 @@ use employees;
 
 -- 6) List the first five employees from the Customer Service Department. Put them in alphabetical order by last name.
 
+SELECT first_name, last_name, gender, dept_name 
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
+WHERE dept_name = 'Customer Service'
+ORDER BY last_name
+LIMIT 5;
+
 -- 7) Find out the current salary and department of Berni Genin. You can use the ORDER BY and LIMIT to get just the most recent salary.
 
 
