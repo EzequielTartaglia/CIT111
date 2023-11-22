@@ -56,7 +56,7 @@ use employees;
 
 -- 6) List the first five employees from the Customer Service Department. Put them in alphabetical order by last name.
 
-SELECT first_name, last_name, gender, dept_name 
+SELECT first_name, last_name
 FROM employees
 INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
 INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
