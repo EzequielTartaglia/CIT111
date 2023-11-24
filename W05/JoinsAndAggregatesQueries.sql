@@ -82,7 +82,7 @@ use bike;
 
 -- 8) Get the average quantity that we have in all our bike stocks. Round to the nearest whole number. 
 
-SELECT ROUND(AVG(quantity)) AS "StockAverage"
+SELECT ROUND(AVG(quantity)) AS 'StockAverage'
 FROM stock;
 
 -- 9) Show each bike that needs to be reordered. Filter the results to only the lowest quantity of zero. Order by product_name The image below show the first 12 of 24 rows total. You don't need to use a LIMIT.  (Hint for this one: Two different stores have the same bike that needs to be reordered. You only need it to show up once.)
@@ -110,9 +110,17 @@ use employees;
 
 -- 11) How many employees do we have? (3 points)
 
-SELECT DISTINCT count(*) as 'Number of Employees'
+SELECT COUNT(DISTINCT emp_no) AS NumberofEmployees
 FROM employees;
 
 -- 12) Get the average salaries in each department. We only need those departments that have average salaries that are below 60,000. Format the salary to 2 decimal places and a comma in the thousands place. 
+
+SELECT dept_name, FORMAT(AVG(salary), 2) AS average_salary
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN salaries ON salaries.emp_no = employees.emp_no
+INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
+GROUP BY departments.dept_no
+HAVING AVG(salary) < 60000;
 
 -- 13) Find out how many females work in each department. Sort by department name.
