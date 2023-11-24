@@ -95,7 +95,13 @@ ORDER BY product.product_name;
 
 -- 10) How many of each category of bikes do we have in stock (inventory) at our "Baldwin Bikes" store, which has the store_id of 2. We need to see the name of the category as well as the number of bikes we have in inventory in the category. Sort by lowest inventory items first. 
 
-
+SELECT category.category_name, COUNT(stock.product_id) AS instock
+FROM stock
+JOIN product ON stock.product_id = product.product_id
+JOIN category ON product.category_id = category.category_id
+WHERE stock.store_id = 2
+GROUP BY category.category_name
+ORDER BY instock;
 
 -- Employee Queries
 
