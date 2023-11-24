@@ -110,6 +110,9 @@ use employees;
 
 -- 11) How many employees do we have? (3 points)
 
+SELECT DISTINCT count(*) as 'Number of Employees'
+FROM employees;
+
 -- 12) Get the average salaries in each department. We only need those departments that have average salaries that are below 60,000. Format the salary to 2 decimal places and a comma in the thousands place. 
 
 -- 13) Find out how many females work in each department. Sort by department name.
