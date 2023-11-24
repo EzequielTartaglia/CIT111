@@ -124,3 +124,10 @@ GROUP BY departments.dept_no
 HAVING AVG(salary) < 60000;
 
 -- 13) Find out how many females work in each department. Sort by department name.
+
+SELECT dept_name, SUM(CASE WHEN gender = 'F' THEN 1 ELSE 0 END) AS NumberofFemales
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
+GROUP BY departments.dept_name
+ORDER BY dept_name;
