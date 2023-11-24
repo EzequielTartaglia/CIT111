@@ -82,9 +82,20 @@ use bike;
 
 -- 8) Get the average quantity that we have in all our bike stocks. Round to the nearest whole number. 
 
+SELECT ROUND(AVG(quantity)) AS "StockAverage"
+FROM stock;
+
 -- 9) Show each bike that needs to be reordered. Filter the results to only the lowest quantity of zero. Order by product_name The image below show the first 12 of 24 rows total. You don't need to use a LIMIT.  (Hint for this one: Two different stores have the same bike that needs to be reordered. You only need it to show up once.)
 
+SELECT DISTINCT product.product_name
+FROM stock
+INNER JOIN product ON product.product_id = stock.product_id
+WHERE stock.quantity = 0
+ORDER BY product.product_name;
+
 -- 10) How many of each category of bikes do we have in stock (inventory) at our "Baldwin Bikes" store, which has the store_id of 2. We need to see the name of the category as well as the number of bikes we have in inventory in the category. Sort by lowest inventory items first. 
+
+
 
 -- Employee Queries
 
